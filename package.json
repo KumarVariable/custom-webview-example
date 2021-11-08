@@ -1,80 +1,85 @@
 {
-	"name": "custom-webview-example",
-	"displayName": "custom-webview-example",
-	"description": "sample extension to demonstrate custom welcome content in VS Code Editor Sidebar",
-	"version": "1.0.0",
-	"publisher": "vscode-examples",
-	"engines": {
-		"vscode": "^1.61.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:custom-webview-example.testOne"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"viewsContainers": {
-			"activitybar": [
-				{
-					"id": "custom-activitybar",
-					"title": "CustomView",
-					"icon": "media/system.svg"
-				}
-			]
-		},
-		"views": {
-			"custom-activitybar": [
-				{
-					"id": "activitybar.customview",
-					"name": "Custom Webview",
-					"contextualTitle": "CustomView"
-				}
-			]
-		},
-		"viewsWelcome": [
-			{
-				"view": "activitybar.customview",
-        		"contents": "Dislay your Welcome-Screen /Tree-View/ Web-View. \n Add any links to [external sources](https://code.visualstudio.com) Or [internal commands](command:custom-webview-example.testOne).\n Use new lines to have new paragraphs.\n Put a link alone in a paragraph to make it a button\n[Click Me !](command:custom-webview-example.testOne)"
-			}
-		],
-		"commands": [
-			{
-				"command": "custom-webview-example.testOne",
-				"title": "Test One"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.61.0",
-		"@types/glob": "^7.1.4",
-		"@types/mocha": "^9.0.0",
-		"@types/node": "^12.11.1",
-		"@typescript-eslint/eslint-plugin": "^4.31.1",
-		"@typescript-eslint/parser": "^4.31.1",
-		"eslint": "^7.32.0",
-		"glob": "^7.1.7",
-		"mocha": "^9.1.1",
-		"typescript": "~4.3.5",
-		"@vscode/test-electron": "^1.6.2",
-		"@angular-devkit/build-angular": "~12.2.12",
-		"@angular/cli": "~12.2.12",
-		"@angular/compiler-cli": "~12.2.0",
-		"@types/jasmine": "~3.8.0",
-		"jasmine-core": "~3.8.0",
-		"karma": "~6.3.0",
-		"karma-chrome-launcher": "~3.1.0",
-		"karma-coverage": "~2.0.3",
-		"karma-jasmine": "~4.0.0",
-		"karma-jasmine-html-reporter": "~1.7.0"
-	}
+  "name": "custom-webview-example",
+  "displayName": "custom-webview-example",
+  "description": "sample extension to demonstrate custom welcome content in VS Code Editor Sidebar",
+  "version": "1.0.0",
+  "publisher": "vscode-sidebar-welcome-page-example",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KumarVariable/custom-webview-example.git"
+  },
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:custom-webview-example.testOne"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "custom-activitybar",
+          "title": "CustomView",
+          "icon": "media/system.svg"
+        }
+      ]
+    },
+    "views": {
+      "custom-activitybar": [
+        {
+          "id": "activitybar.customview",
+          "name": "Custom Webview",
+          "contextualTitle": "CustomView"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "activitybar.customview",
+        "contents": "Dislay your Welcome-Screen /Tree-View/ Web-View. \n Add any links to [external sources](https://code.visualstudio.com) Or [internal commands](command:custom-webview-example.testOne).\n Use new lines to have new paragraphs.\n Put a link alone in a paragraph to make it a button\n[Click Me !](command:custom-webview-example.testOne)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "custom-webview-example.testOne",
+        "title": "Test One"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.61.0",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.1",
+    "typescript": "~4.3.5",
+    "@vscode/test-electron": "^1.6.2",
+    "@angular-devkit/build-angular": "~12.2.12",
+    "@angular/cli": "~12.2.12",
+    "@angular/compiler-cli": "~12.2.0",
+    "@types/jasmine": "~3.8.0",
+    "jasmine-core": "~3.8.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0"
+  }
 }

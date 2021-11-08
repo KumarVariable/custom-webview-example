@@ -1,60 +1,63 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-import { CustomViewDataProvider, CustomTreeItems } from './customViewDataProvider';
-import { CustomWebViewPanel} from './customWebViewPanel';
+import {
+  CustomViewDataProvider,
+  CustomTreeItems,
+} from "./customViewDataProvider";
+import { CustomWebViewPanel } from "./customWebViewPanel";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "custom-webview-example" is now active!');
+  // Use the console to output diagnostic information (console.log) and errors (console.error)
+  // This line of code will only be executed once when your extension is activated
+  console.log(
+    'Congratulations, your extension "custom-webview-example" is now active!'
+  );
 
-	const customViewDataProvider = new CustomViewDataProvider();
+  const customViewDataProvider = new CustomViewDataProvider();
 
-	vscode.window.registerTreeDataProvider('activitybar.customview', customViewDataProvider);
+  vscode.window.registerTreeDataProvider(
+    "activitybar.customview",
+    customViewDataProvider
+  );
 
-	context.subscriptions.push(
-		vscode.commands.registerCommand('custom-webview-example.testOne', () => {
-			
-			// Display a message box to the user
-		const message = "Sample VS code WebView View";
-		vscode.window.showInformationMessage(message);
+  context.subscriptions.push(
+    vscode.commands.registerCommand("custom-webview-example.testOne", () => {
+      // Display a message box to the user
+      const message = "Sample VS code WebView View";
+      vscode.window.showInformationMessage(message);
 
-		// Type of the webview panel.
-		const viewType = "openWebView";
+      // Type of the webview panel.
+      const viewType = "openWebView";
 
-		//Title of the panel displayed to user.
-		const title = "My Custom Panel Title";
+      //Title of the panel displayed to user.
+      const title = "My Custom Panel Title";
 
-		// Create and show a new webview panel
-		const webViewPanel = vscode.window.createWebviewPanel(
-			viewType,
-			title,
-			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-			{
-				// enable scripts in the webview
-				enableScripts: true
-			} // Webview options
-		  );
+      // Create and show a new webview panel
+      const webViewPanel = vscode.window.createWebviewPanel(
+        viewType,
+        title,
+        vscode.ViewColumn.One, // Editor column to show the new webview panel in.
+        {
+          // enable scripts in the webview
+          enableScripts: true,
+        } // Webview options
+      );
 
-		// Set our custom HTML content
-		webViewPanel.webview.html = getHTMLWebviewContent();
-
-
-		})
-	);
+      // Set our custom HTML content
+      webViewPanel.webview.html = getHTMLWebviewContent();
+    })
+  );
 }
 
 // this method is called when your extension is deactivated
 export function deactivate() {}
 
 function getHTMLWebviewContent(): string {
-
-	return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 
